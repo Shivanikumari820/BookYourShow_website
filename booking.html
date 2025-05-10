@@ -1,0 +1,381 @@
+&lt;!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Tickets - MyCinema</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/booking.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+    &lt;!-- Header Section -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="index.html">
+                        <span class="logo-text">My</span>
+                        <span class="logo-text-accent">Cinema</span>
+                    </a>
+                </div>
+                
+                <nav class="nav-menu">
+                    <ul class="nav-list">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="movies.html">Movies</a></li>
+                        <li><a href="cinemas.html">Cinemas</a></li>
+                        <li><a href="offers.html">Offers</a></li>
+                        <li><a href="experiences.html">Experiences</a></li>
+                    </ul>
+                </nav>
+                
+                <div class="header-actions">
+                    <button class="btn-icon search-btn">
+                        <i class="fas fa-search"></i>
+                    </button>
+                    <button class="btn-icon notification-btn">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-badge"></span>
+                    </button>
+                    <a href="login.html" class="btn-login">
+                        <i class="fas fa-user"></i>
+                        <span>Sign In</span>
+                    </a>
+                    <a href="signup.html" class="btn btn-primary">Sign Up</a>
+                </div>
+                
+                <button class="mobile-menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+    
+    &lt;!-- Mobile Menu -->
+    <div class="mobile-menu">
+        <div class="container">
+            <ul class="mobile-nav-list">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="movies.html">Movies</a></li>
+                <li><a href="cinemas.html">Cinemas</a></li>
+                <li><a href="offers.html">Offers</a></li>
+                <li><a href="experiences.html">Experiences</a></li>
+            </ul>
+            <div class="mobile-actions">
+                <a href="login.html" class="btn-login-mobile">Sign In</a>
+                <a href="signup.html" class="btn btn-primary">Sign Up</a>
+            </div>
+        </div>
+    </div>
+    
+    &lt;!-- Booking Process -->
+    <section class="booking-process">
+        <div class="container">
+            <div class="booking-steps">
+                <div class="step active">
+                    <div class="step-number">1</div>
+                    <div class="step-text">Select Movie</div>
+                </div>
+                <div class="step-connector"></div>
+                <div class="step active">
+                    <div class="step-number">2</div>
+                    <div class="step-text">Select Seats</div>
+                </div>
+                <div class="step-connector"></div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-text">Payment</div>
+                </div>
+                <div class="step-connector"></div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-text">Confirmation</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    &lt;!-- Movie Info -->
+    <section class="movie-info">
+        <div class="container">
+            <div class="movie-info-container">
+                <div class="movie-poster">
+                    <img src="images/movies/dune.jpg" alt="Dune: Part Two">
+                </div>
+                <div class="movie-details">
+                    <h1 class="movie-title">Dune: Part Two</h1>
+                    <div class="movie-meta">
+                        <span class="meta-item"><i class="fas fa-film"></i> IMAX</span>
+                        <span class="meta-item"><i class="fas fa-language"></i> English</span>
+                        <span class="meta-item"><i class="fas fa-clock"></i> 166 min</span>
+                    </div>
+                    <div class="show-details">
+                        <div class="show-date">
+                            <i class="fas fa-calendar"></i>
+                            <span>Wednesday, May 8, 2025</span>
+                        </div>
+                        <div class="show-time">
+                            <i class="fas fa-clock"></i>
+                            <span>16:30</span>
+                        </div>
+                        <div class="show-theater">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>MyCinema - Mumbai</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    &lt;!-- Seat Selection -->
+    <section class="seat-selection">
+        <div class="container">
+            <div class="seat-selection-container" data-aos="fade-up">
+                <div class="selection-header">
+                    <h2>Select Seats</h2>
+                    <div class="ticket-counter">
+                        <label for="ticket-count">Tickets:</label>
+                        <select id="ticket-count">
+                            <option value="1">1</option>
+                            <option value="2" selected>2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="seat-categories">
+                    <div class="category">
+                        <div class="category-name">RECLINER</div>
+                        <div class="category-price">₹650</div>
+                    </div>
+                    <div class="category">
+                        <div class="category-name">PRIME</div>
+                        <div class="category-price">₹350</div>
+                    </div>
+                    <div class="category">
+                        <div class="category-name">CLASSIC</div>
+                        <div class="category-price">₹250</div>
+                    </div>
+                </div>
+                
+                <div class="seat-map-container">
+                    <div class="seat-legend">
+                        <div class="legend-item">
+                            <div class="seat available"></div>
+                            <span>Available</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="seat selected"></div>
+                            <span>Selected</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="seat booked"></div>
+                            <span>Booked</span>
+                        </div>
+                    </div>
+                    
+                    <div class="screen-container">
+                        <div class="screen">
+                            <span>SCREEN</span>
+                        </div>
+                    </div>
+                    
+                    <div class="seat-map">
+                    
+                        <div class="seat-row row-label">
+                            <div class="row-name">A</div>
+                            <div class="seats recliner">
+                            </div>
+                            <div class="row-name">A</div>
+                        </div>
+                        <div class="seat-row row-label">
+                            <div class="row-name">B</div>
+                            <div class="seats recliner">
+                            </div>
+                            <div class="row-name">B</div>
+                        </div>
+                        
+                        <div class="section-gap"></div>
+                        
+                       
+                        <div class="seat-row row-label">
+                            <div class="row-name">C</div>
+                            <div class="seats prime">
+                               
+                            </div>
+                            <div class="row-name">C</div>
+                        </div>
+                        <div class="seat-row row-label">
+                            <div class="row-name">D</div>
+                            <div class="seats prime">
+                               
+                            </div>
+                            <div class="row-name">D</div>
+                        </div>
+                        <div class="seat-row row-label">
+                            <div class="row-name">E</div>
+                            <div class="seats prime">
+                            </div>
+                            <div class="row-name">E</div>
+                        </div>
+                        
+                        <div class="section-gap"></div>
+                        
+                       
+                        <div class="seat-row row-label">
+                            <div class="row-name">F</div>
+                            <div class="seats classic">
+                             
+                            </div>
+                            <div class="row-name">F</div>
+                        </div>
+                        <div class="seat-row row-label">
+                            <div class="row-name">G</div>
+                            <div class="seats classic">
+                              
+                            </div>
+                            <div class="row-name">G</div>
+                        </div>
+                        <div class="seat-row row-label">
+                            <div class="row-name">H</div>
+                            <div class="seats classic">
+                              
+                            </div>
+                            <div class="row-name">H</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    &lt;!-- Order Summary -->
+    <section class="order-summary">
+        <div class="container">
+            <div class="summary-container" data-aos="fade-up">
+                <h2>Order Summary</h2>
+                
+                <div class="summary-items">
+                    <div class="summary-item">
+                        <div class="item-label">
+                            <i class="fas fa-ticket-alt"></i>
+                            <span id="ticket-summary">0 Tickets</span>
+                        </div>
+                        <div class="item-value" id="ticket-price">₹0</div>
+                    </div>
+                    
+                    <div class="summary-item">
+                        <div class="item-label">
+                            <i class="fas fa-utensils"></i>
+                            <span>Convenience Fee</span>
+                        </div>
+                        <div class="item-value">₹60</div>
+                    </div>
+                    
+                    <div class="summary-item">
+                        <div class="item-label">
+                            <i class="fas fa-info-circle"></i>
+                            <span>GST (18%)</span>
+                        </div>
+                        <div class="item-value" id="gst-amount">₹0</div>
+                    </div>
+                    
+                    <div class="summary-total">
+                        <div class="total-label">Total Amount</div>
+                        <div class="total-value" id="total-amount">₹60</div>
+                    </div>
+                </div>
+                
+                <div class="selected-seats-container">
+                    <h3>Selected Seats</h3>
+                    <div class="selected-seats" id="selected-seats-display">
+                        <span class="no-seats">No seats selected</span>
+                    </div>
+                </div>
+                
+                <button id="proceed-payment" class="btn btn-primary btn-block" disabled>Proceed to Payment</button>
+            </div>
+        </div>
+    </section>
+    
+    &lt;!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3 class="footer-title">MyCinema</h3>
+                    <p class="footer-description">
+                        Experience movies like never before with premium comfort and cutting-edge technology.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3 class="footer-title">Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="cinemas.html">Our Cinemas</a></li>
+                        <li><a href="food.html">Food & Beverages</a></li>
+                        <li><a href="offers.html">Offers & Promotions</a></li>
+                        <li><a href="gift-cards.html">Gift Cards</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3 class="footer-title">Experiences</h3>
+                    <ul class="footer-links">
+                        <li><a href="imax.html">IMAX</a></li>
+                        <li><a href="4dx.html">4DX</a></li>
+                        <li><a href="dolby.html">Dolby Atmos</a></li>
+                        <li><a href="luxe.html">LUXE</a></li>
+                        <li><a href="playhouse.html">Playhouse</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3 class="footer-title">Contact Us</h3>
+                    <ul class="contact-info">
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span>support@mycinema.com</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <span>+91 1800 1234 5678</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p class="copyright">
+                    &copy; <span id="current-year"></span> MyCinema. All rights reserved.
+                </p>
+                <div class="footer-bottom-links">
+                    <a href="terms.html">Terms of Service</a>
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="faq.html">FAQ</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    &lt;!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/booking.js"></script>
+</body>
+</html>
