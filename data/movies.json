@@ -8,8 +8,8 @@
       "duration": "124 min",
       "releaseYear": "2024",
       "description": "Wade Wilson teams up with Wolverine in this action-packed adventure that brings together two of Marvel's most iconic characters.",
-      "image": "images/movies/deadpool.jpg",
-      "trailer": "https://www.youtube.com/embed/4sYYIxMxsOA",
+      "image": "images/deadpool.webp",
+      "trailer": "https://www.youtube.com/watch?v=U8FM3yaY1nE",
       "showTimes": ["10:00 AM", "1:30 PM", "4:45 PM", "8:00 PM", "10:30 PM"]
     },
     {
@@ -20,8 +20,8 @@
       "duration": "94 min",
       "releaseYear": "2024",
       "description": "Po returns for another epic adventure as he faces a new villain threatening the peace of the valley while also training a new Dragon Warrior.",
-      "image": "images/movies/kungfu-panda.jpg",
-      "trailer": "https://www.youtube.com/embed/QI9sSz4TiM8",
+      "image": "images/kung_fu.jpg",
+      "trailer": "https://www.youtube.com/watch?v=NRc-ze7Wrxw",
       "showTimes": ["9:30 AM", "12:00 PM", "2:30 PM", "5:00 PM", "7:30 PM"]
     },
     {
@@ -32,8 +32,8 @@
       "duration": "115 min",
       "releaseYear": "2024",
       "description": "The epic clash between Godzilla and Kong continues as they face a colossal threat that could destroy the world.",
-      "image": "images/movies/godzilla-kong.jpg",
-      "trailer": "https://www.youtube.com/embed/odM92ap8_c0",
+      "image": "images/godzilla.jpg",
+      "trailer": "https://www.youtube.com/watch?v=pa3nW0EYYcQ",
       "showTimes": ["11:15 AM", "2:00 PM", "4:30 PM", "7:15 PM", "9:45 PM"]
     },
     {
@@ -44,8 +44,8 @@
       "duration": "166 min",
       "releaseYear": "2024",
       "description": "Paul Atreides unites with Chani and the Fremen while seeking revenge against the conspirators who destroyed his family. Facing a choice between the love of his life and the fate of the universe, he must prevent a terrible future only he can foresee.",
-      "image": "images/movies/dune.jpg",
-      "trailer": "https://www.youtube.com/embed/aSiDu3Ywi8E",
+      "image": "images/dune_part two.jpg",
+      "trailer": "https://www.youtube.com/watch?v=Way9Dexny3w&t=4s",
       "showTimes": ["10:30 AM", "2:15 PM", "6:00 PM", "9:30 PM"]
     },
     {
@@ -56,8 +56,8 @@
       "duration": "126 min",
       "releaseYear": "2024",
       "description": "A stuntman gets involved in a dangerous mission when he's forced to find a missing movie star and solve a conspiracy that threatens the entire film industry.",
-      "image": "images/movies/fall-guy.jpg",
-      "trailer": "https://www.youtube.com/embed/Ym5lUzNieJU",
+      "image": "images/fall guy.jpg",
+      "trailer": "https://www.youtube.com/watch?v=j7jPnwVGdZ8",
       "showTimes": ["11:00 AM", "1:45 PM", "4:15 PM", "6:45 PM", "9:15 PM"]
     },
     {
@@ -68,8 +68,8 @@
       "duration": "145 min",
       "releaseYear": "2024",
       "description": "Many years after the reign of Caesar, a young ape goes on a journey that will lead him to question everything he's been taught about the past and make choices that will define a future for apes and humans alike.",
-      "image": "images/movies/planet-apes.jpg",
-      "trailer": "https://www.youtube.com/embed/6V_YUKtQDVU",
+      "image": "images/kingdom.jpg",
+      "trailer": "https://www.youtube.com/watch?v=SJIOn1VuNOU",
       "showTimes": ["10:15 AM", "1:00 PM", "3:45 PM", "6:30 PM", "9:00 PM"]
     }
   ],
@@ -80,8 +80,8 @@
       "genre": "Crime, Drama, Thriller",
       "releaseDate": "October 4, 2024",
       "description": "The sequel to the acclaimed Joker film follows Arthur Fleck as he navigates his complex relationship with Harley Quinn while dealing with his dual identity as the infamous Joker.",
-      "image": "images/movies/joker2.jpg",
-      "trailer": "https://www.youtube.com/embed/03ymBj144ng"
+      "image": "images/joker.jpg",
+      "trailer": "https://www.youtube.com/watch?v=_OKAwz2MsJs"
     },
     {
       "id": 8,
@@ -89,8 +89,8 @@
       "genre": "Action, Adventure",
       "releaseDate": "May 24, 2024",
       "description": "The origin story of the fierce warrior Furiosa before she teamed up with Mad Max in Fury Road, chronicling her survival in the Wasteland.",
-      "image": "images/movies/furiosa.jpg",
-      "trailer": "https://www.youtube.com/embed/XdKzqVHJYz4"
+      "image": "images/joker.jpg",
+      "trailer": "https://www.youtube.com/watch?v=_OKAwz2MsJs"
     },
     {
       "id": 9,
@@ -98,8 +98,8 @@
       "genre": "Animation, Adventure, Comedy",
       "releaseDate": "June 14, 2024",
       "description": "Riley enters adolescence as new emotions join Joy, Sadness, Anger, Fear, and Disgust inside Headquarters, creating a whole new dynamic inside her mind.",
-      "image": "images/movies/inside-out2.jpg",
-      "trailer": "https://www.youtube.com/embed/VbFJdB-0ySE"
+      "image": "images/inside_out.jpg",
+      "trailer": "https://www.youtube.com/watch?v=LEjhY15eCx0"
     },
     {
       "id": 10,
@@ -107,8 +107,8 @@
       "genre": "Action, Drama, History",
       "releaseDate": "November 22, 2024",
       "description": "The sequel to the epic historical drama follows a new hero's journey in ancient Rome, continuing the legacy of the original film with new battles and political intrigue.",
-      "image": "images/movies/gladiator2.jpg",
-      "trailer": "https://www.youtube.com/embed/L_EWOKJaiMQ"
+      "image": "images/gradiator.jpg",
+      "trailer": "https://www.youtube.com/watch?v=4rgYUipGJNo"
     }
   ],
   "recommended": [
@@ -119,8 +119,8 @@
       "rating": "8.7",
       "match": "95% Match",
       "description": "A team of explorers travel through a wormhole in space in an attempt to ensure humanity's survival.",
-      "image": "images/movies/interstellar.jpg",
-      "trailer": "https://www.youtube.com/embed/zSWdZVtXT7E"
+      "image": "images/intersteller.jpg",
+      "trailer": "https://www.youtube.com/watch?v=zSWdZVtXT7E"
     },
     {
       "id": 12,
@@ -129,8 +129,8 @@
       "rating": "9.0",
       "match": "98% Match",
       "description": "When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice.",
-      "image": "images/movies/dark-knight.jpg",
-      "trailer": "https://www.youtube.com/embed/EXeTwQWrcwY"
+      "image": "images/dark_night.jpg",
+      "trailer": "https://www.youtube.com/watch?v=EXeTwQWrcwY"
     },
     {
       "id": 13,
@@ -139,8 +139,8 @@
       "rating": "8.8",
       "match": "96% Match",
       "description": "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O.",
-      "image": "images/movies/inception.jpg",
-      "trailer": "https://www.youtube.com/embed/YoHD9XEInc0"
+      "image": "images/inception.jpg",
+      "trailer": "https://www.youtube.com/watch?v=LifqWf0BAOA"
     },
     {
       "id": 14,
@@ -149,8 +149,8 @@
       "rating": "8.5",
       "match": "92% Match",
       "description": "After a tragic accident, two stage magicians engage in a battle to create the ultimate illusion while sacrificing everything they have to outwit each other.",
-      "image": "images/movies/prestige.jpg",
-      "trailer": "https://www.youtube.com/embed/o4gHCmTQDVI"
+      "image": "images/prestige.jpg",
+      "trailer": "https://www.youtube.com/watch?v=Way9Dexny3w"
     }
   ]
 }

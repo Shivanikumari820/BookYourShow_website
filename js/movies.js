@@ -74,6 +74,35 @@ document.addEventListener("DOMContentLoaded", () => {
       `
       swiperWrapper.appendChild(slide)
     })
+
+    // Add event listeners to the newly created play buttons
+    const playButtons = swiperWrapper.querySelectorAll(".play-btn")
+    playButtons.forEach((button) => {
+      button.addEventListener("click", (e) => {
+        e.preventDefault()
+        e.stopPropagation()
+
+        const trailerUrl = button.getAttribute("data-trailer")
+        const trailerModal = document.querySelector(".trailer-modal")
+        const trailerIframe = document.getElementById("trailer-iframe")
+
+        if (trailerModal && trailerIframe && trailerUrl) {
+          // Make sure the URL has autoplay parameter
+          const finalUrl = trailerUrl.includes("?")
+            ? trailerUrl.includes("autoplay=1")
+              ? trailerUrl
+              : `${trailerUrl}&autoplay=1`
+            : `${trailerUrl}?autoplay=1`
+
+          trailerIframe.src = finalUrl
+          trailerModal.classList.add("active")
+          document.body.style.overflow = "hidden"
+
+          // Log for debugging
+          console.log("Opening trailer from movie card:", finalUrl)
+        }
+      })
+    })
   }
 
   // Initialize Coming Soon section

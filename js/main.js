@@ -7,6 +7,8 @@ document.addEventListener("DOMContentLoaded", () => {
       easing: "ease-out",
       once: true,
     })
+  } else {
+    console.warn("AOS is not defined. Make sure AOS library is properly included.")
   }
 
   // Set current year in footer
@@ -46,9 +48,21 @@ document.addEventListener("DOMContentLoaded", () => {
       button.addEventListener("click", (e) => {
         // Get the trailer URL from the data attribute or use a default
         const trailerUrl = button.dataset.trailer || "https://www.youtube.com/embed/aSiDu3Ywi8E?autoplay=1"
-        trailerIframe.src = trailerUrl
+        
+        // Make sure the URL has autoplay parameter
+        const finalUrl = trailerUrl.includes('?') 
+          ? (trailerUrl.includes('autoplay=1') ? trailerUrl : `${trailerUrl}&autoplay=1`) 
+          : `${trailerUrl}?autoplay=1`
+        
+        // Set the iframe src
+        trailerIframe.src = finalUrl
+        
+        // Show the modal
         trailerModal.classList.add("active")
         document.body.style.overflow = "hidden" // Prevent scrolling
+        
+        // Log for debugging
+        console.log("Opening trailer:", finalUrl)
       })
     })
 
