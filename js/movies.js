@@ -137,6 +137,7 @@ document.addEventListener("DOMContentLoaded", () => {
     })
   }
 
+  
   // Initialize Recommendations section
   function initializeRecommendations(movies) {
     const recommendationGrid = document.querySelector(".recommendation-grid")

@@ -1,17 +1,21 @@
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", () => {      //Jab pura HTML load ho jata hai (par images wagairah nahi), tab yeh function chalaya jata hai.
   // Toggle password visibility
   const togglePasswordButtons = document.querySelectorAll(".toggle-password")
 
+
+//Har button ke liye loop chala rahe hain. ,Jab button pe click ho, tab yeh code chalega.
   togglePasswordButtons.forEach((button) => {
     button.addEventListener("click", function () {
       const input = this.previousElementSibling
       const icon = this.querySelector("i")
 
+
+//Agar password chhupa hua hai to usse dikha do aur icon badal do
       if (input.type === "password") {
         input.type = "text"
         icon.classList.remove("fa-eye")
         icon.classList.add("fa-eye-slash")
-      } else {
+      } else {                                               //Aur agar password visible hai to wapas chhupa do aur icon badal do.
         input.type = "password"
         icon.classList.remove("fa-eye-slash")
         icon.classList.add("fa-eye")
@@ -29,6 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const password = this.value
       let strength = 0
 
+//Password ki length, capital/lower case, numbers, special characters check kar ke strength badhate hain.----->>>>>>>.      
       // Check password length
       if (password.length >= 8) {
         strength += 1
@@ -65,7 +70,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (loginForm) {
     loginForm.addEventListener("submit", (e) => {
-      e.preventDefault()
+      e.preventDefault()                                      //Jab form submit ho, default page reload rok dete hain. means refresh rok deta h 
 
       // Show loader
       const submitBtn = loginForm.querySelector('button[type="submit"]')
@@ -79,11 +84,13 @@ document.addEventListener("DOMContentLoaded", () => {
       const remember = document.getElementById("remember")?.checked || false
 
       // Simulate API call with setTimeout
-      setTimeout(() => {
+      setTimeout(() => {                                                 
         // Check if user exists in localStorage (for demo purposes)
         const storedEmail = localStorage.getItem("userEmail")
         const storedPassword = localStorage.getItem("userPassword")
 
+
+// Agar login details sahi hain, to login kara dete hain aur home page bhejte hain.
         if (storedEmail === email && storedPassword === password) {
           // Login successful
           localStorage.setItem("isLoggedIn", "true")
@@ -93,20 +100,23 @@ document.addEventListener("DOMContentLoaded", () => {
             window.showToast("Login successful! Redirecting...", "success")
           }
 
-          // Redirect to home page after a short delay
+  // Redirect to home page after a short delay
           setTimeout(() => {
             window.location.href = "index.html"
-          }, 1500)
-        } else if (storedEmail === email) {
-          // Wrong password
+          }, 1500)                                                  //1.5 second delay ke baad localStorage se user ke data ko nikalte hain.
+        }
+        
+        else if (storedEmail === email) {
+          // Wrong password =  //Agar email mil gaya lekin password galat hai, to message dikhate hain.
           submitBtn.innerHTML = originalBtnText
           submitBtn.disabled = false
-
-          if (window.showToast) {
-            window.showToast("Incorrect password. Please try again.", "error")
-          }
-        } else {
-          // User not found
+                 if (window.showToast) {
+                      window.showToast("Incorrect password. Please try again.", "error")
+               }
+        } 
+        
+        else {                                                                    
+          // User not found   = Agar email hi nahi mila to user ko inform karte hain.
           submitBtn.innerHTML = originalBtnText
           submitBtn.disabled = false
 
@@ -118,6 +128,8 @@ document.addEventListener("DOMContentLoaded", () => {
     })
   }
 
+
+// 🧾 Signup Form ------------------>>  
   if (signupForm) {
     signupForm.addEventListener("submit", (e) => {
       e.preventDefault()
@@ -183,9 +195,12 @@ document.addEventListener("DOMContentLoaded", () => {
     })
   }
 
+
+// 🔁 Forgot Password Form   --->
+
   if (forgotForm) {
     forgotForm.addEventListener("submit", (e) => {
-      e.preventDefault()
+      e.preventDefault()                                   //Forgot password form submit hone par bhi default rok dete hain.
 
       // Show loader
       const submitBtn = forgotForm.querySelector('button[type="submit"]')

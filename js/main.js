@@ -14,8 +14,8 @@ document.addEventListener("DOMContentLoaded", () => {
   // Set current year in footer
   const currentYearElement = document.getElementById("current-year")
   if (currentYearElement) {
-    currentYearElement.textContent = new Date().getFullYear()
-  }
+    currentYearElement.textContent = new Date().getFullYear()               //  new Date().getFullYear() = This gets the current year (e.g., 2025).
+  }                                                                         // currentYearElement.textContent = Updates the content of the element with the current year.
 
   // Mobile Menu Toggle
   const mobileMenuToggle = document.querySelector(".mobile-menu-toggle")
@@ -37,29 +37,29 @@ document.addEventListener("DOMContentLoaded", () => {
     })
   }
 
-  // Trailer Modal
+  // Trailer Modal == wala part h jisme click krne pr trailer play hoga or click krne pr pause uske liye
   const trailerButtons = document.querySelectorAll(".watch-trailer, .play-btn")
   const trailerModal = document.querySelector(".trailer-modal")
   const closeModal = document.querySelector(".close-modal")
-  const trailerIframe = document.getElementById("trailer-iframe")
+  const trailerIframe = document.getElementById("trailer-iframe")                      //Selects the iframe where the trailer video will be embedded.
 
   if (trailerButtons.length && trailerModal && closeModal && trailerIframe) {
     trailerButtons.forEach((button) => {
-      button.addEventListener("click", (e) => {
+      button.addEventListener("click", (e) => {                                    //When a trailer button is clicked, the corresponding trailer URL (from the button’s data-trailer attribute) is fetched.
         // Get the trailer URL from the data attribute or use a default
         const trailerUrl = button.dataset.trailer || "https://www.youtube.com/embed/aSiDu3Ywi8E?autoplay=1"
         
         // Make sure the URL has autoplay parameter
-        const finalUrl = trailerUrl.includes('?') 
+        const finalUrl = trailerUrl.includes('?')                                     
           ? (trailerUrl.includes('autoplay=1') ? trailerUrl : `${trailerUrl}&autoplay=1`) 
           : `${trailerUrl}?autoplay=1`
         
         // Set the iframe src
-        trailerIframe.src = finalUrl
+        trailerIframe.src = finalUrl                                    //The iframe’s src is set to the trailer URL, with autoplay enabled
         
         // Show the modal
-        trailerModal.classList.add("active")
-        document.body.style.overflow = "hidden" // Prevent scrolling
+        trailerModal.classList.add("active")                        // Shows the trailer modal.
+        document.body.style.overflow = "hidden" // Prevent scrolling = Disables page scrolling while the modal is active. 
         
         // Log for debugging
         console.log("Opening trailer:", finalUrl)
@@ -90,9 +90,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (isLoggedIn && loginBtn && signupBtn) {
       const userName = localStorage.getItem("userName") || "User"
-      loginBtn.innerHTML = `<i class="fas fa-user"></i><span>${userName}</span>`
+      loginBtn.innerHTML = `<i class="fas fa-user"></i><span>${userName}</span>`             //If logged in, it updates the login button with the user’s name and changes the signup button to a "Logout" button.
       loginBtn.href = "#"
-      signupBtn.textContent = "Logout"
+      signupBtn.textContent = "Logout"                                                    //  Removes the user data from localStorage, shows a toast notification confirming logout, and redirects the user to the homepage after a brief delay.
       signupBtn.href = "#"
       signupBtn.addEventListener("click", (e) => {
         e.preventDefault()
@@ -147,5 +147,5 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // Check login status on page load
-  checkLoginStatus()
+  checkLoginStatus()          
 })
