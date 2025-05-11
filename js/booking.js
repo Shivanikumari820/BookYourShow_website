@@ -1,8 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // Check if user is logged in
-  const isLoggedIn = localStorage.getItem("isLoggedIn") === "true"
+  // Check if user is logged in from local storage
+  const isLoggedIn = localStorage.getItem("isLoggedIn") === "true"   
   if (!isLoggedIn) {
-    // Redirect to login page if not logged in
+    // Redirect to login page if not logged in or  redirect ke baad wapas yahi page pe lane ke liye URL save kar lo.
     localStorage.setItem("redirectAfterLogin", window.location.href)
     window.location.href = "login.html"
     return
@@ -28,7 +28,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const proceedPaymentBtn = document.getElementById("proceed-payment")
 
   let selectedSeats = []
-  let maxSeats = ticketCountSelect ? Number.parseInt(ticketCountSelect.value) : 2
+// ✅ Remove seat limit, allow unlimited selection
+let maxSeats = Infinity
+
+
 
   // Seat prices by category
   const seatPrices = {
@@ -93,7 +96,7 @@ document.addEventListener("DOMContentLoaded", () => {
     })
   }
 
-  // Generate seats for each row
+  // Generate seats for each row  = Yeh function dynamically HTML mein seats create karta hai — har category ke liye (recliner, prime, classic).
   function generateSeats() {
     if (!seatMap) return
 
@@ -149,7 +152,7 @@ document.addEventListener("DOMContentLoaded", () => {
     })
   }
 
-  // Handle seat selection
+  // Handle seat selection  = ➡️ Jab seat pe click karo, toh select/deselect hota hai — max seat count ka dhyan rakha gaya hai.
   function handleSeatSelection(e) {
     if (!e.target.classList.contains("seat")) return
     if (e.target.classList.contains("booked")) return
@@ -182,7 +185,7 @@ document.addEventListener("DOMContentLoaded", () => {
     updateSummary()
   }
 
-  // Update ticket count
+  // Update ticket count   =  Dropdown se agar user ne ticket count change kiya, toh uske hisaab se extra selected seats hata dete hain.
   function updateTicketCount() {
     maxSeats = Number.parseInt(ticketCountSelect.value)
 
@@ -272,7 +275,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       setTimeout(() => {
         // Redirect to a success page or show success message
-        window.location.href = "payment-success.html"
+        window.location.href = "confirm.html"
       }, 2000)
     })
   }
@@ -310,3 +313,35 @@ document.addEventListener("DOMContentLoaded", () => {
     `
   document.head.appendChild(style)
 })
+
+
+
+/* NOTES --->>
+
+Seat selection ki limit = #ticket-count dropdown mein selected value
+(agar kuch bhi selected nahi hai, toh by default 2 seats allowed hain).
+
+//Is tarah user sirf 1–6 tickets select kar sakta hai ,  to iski jgh
+<select id="ticket-count">
+  <option value="1">1 Ticket</option>
+  <option value="2" selected>2 Tickets</option>
+  <option value="3">3 Tickets</option>
+  <option value="4">4 Tickets</option>
+  <option value="5">5 Tickets</option>
+  <option value="6">6 Tickets</option>
+</select>
+
+
+// Agar tum dynamically values generate karna chahte ho, toh JS mein aise likh sakte ho:
+const ticketCountSelect = document.getElementById("ticket-count")
+if (ticketCountSelect) {
+  for (let i = 1; i <= 6; i++) {
+    const option = document.createElement("option")
+    option.value = i
+    option.textContent = `${i} Ticket${i > 1 ? 's' : ''}`
+    if (i === 2) option.selected = true // Default select 2
+    ticketCountSelect.appendChild(option)
+  }
+}
+
+*/

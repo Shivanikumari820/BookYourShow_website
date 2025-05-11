@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Booking Confirmed</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #6e8efb, #a777e3);
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .thank-you-container {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      padding: 40px 30px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      max-width: 500px;
+      width: 100%;
+      backdrop-filter: blur(10px);
+    }
+
+    .thank-you-container h1 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    .thank-you-container p {
+      font-size: 1.1rem;
+      margin-bottom: 30px;
+    }
+
+    .thank-you-container .loader {
+      border: 5px solid rgba(255, 255, 255, 0.3);
+      border-top: 5px solid white;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      animation: spin 1s linear infinite;
+      margin: 0 auto;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .thank-you-container {
+        padding: 30px 20px;
+      }
+
+      .thank-you-container h1 {
+        font-size: 1.5rem;
+      }
+
+      .thank-you-container p {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="thank-you-container">
+    <h1>🎉 Your Booking is Confirmed!</h1>
+    <p>Thank you for choosing MyCinema. Go to Booking details ...</p>
+    <div class="loader"></div>
+  </div>
+
+  <script>
+    // Redirect to bookings page after 3 seconds
+    // setTimeout(() => {
+    //   window.location.href = "mybookings.html"; // change this if your file is named differently
+    // }, 3000);
+  </script>
+</body>
+</html>

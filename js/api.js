@@ -88,8 +88,8 @@ function logoutUser() {
 }
 
 function getCurrentUser() {
-  const userJson = localStorage.getItem("currentUser")
-  return userJson ? JSON.parse(userJson) : null
+  const userJson = localStorage.getItem("currentUser")   //Jo bhi user login hai, uska data fetch karta hai localStorage se.
+  return userJson ? JSON.parse(userJson) : null          //Agar nahi mila, null return karta hai.
 }
 
 function resetPassword(email) {
@@ -135,7 +135,7 @@ function getUserBookings() {
   return bookings.filter((booking) => booking.userEmail === user.email)
 }
 
-// Export all functions
+// Export all functions      Saari functions ko API object mein group kiya gaya hai.
 const API = {
   fetchMovies,
   fetchMovieById,
@@ -149,4 +149,60 @@ const API = {
 }
 
 // Make API available globally
-window.API = API
+window.API = API        // window.API se ye functions globally accessible ho jaate hain tumhare frontend JavaScript mein.
+
+
+
+//agr ek hi user multiple booking krna chahe to kr skta h 
+
+// ✅ saveBooking() – Same function, already supports multiple bookings
+function saveBooking(bookingData) {
+  return new Promise((resolve) => {
+    const bookings = JSON.parse(localStorage.getItem("bookings")) || []
+
+    const newBooking = {
+      id: Date.now(), // unique ID for each booking
+      ...bookingData,
+      date: new Date().toISOString(),
+    }
+
+    bookings.push(newBooking)
+    localStorage.setItem("bookings", JSON.stringify(bookings))
+    resolve(newBooking)
+  })
+}
+
+// ✅ getUserBookings() – Get all bookings by the current user
+function getUserBookings() {
+  const user = getCurrentUser()
+  if (!user) return []
+
+  const bookings = JSON.parse(localStorage.getItem("bookings")) || []
+  return bookings.filter((booking) => booking.userEmail === user.email)
+}
+
+
+// ✅ Booking Example (Use this when user clicks Proceed to Pay)
+if (selectedSeats.length > 0) {
+  const user = API.getCurrentUser()
+  const movieId = new URLSearchParams(window.location.search).get("id")
+
+  API.saveBooking({
+    userEmail: user.email,
+    movieId: movieId,
+    movieTitle: document.querySelector(".movie-title")?.textContent,
+    seats: selectedSeats.map((s) => s.id),
+    totalAmount: total, // You calculate this in your updateSummary()
+  }).then(() => {
+    window.showToast("Booking successful!", "success")
+    window.location.href = "payment-success.html"
+  })
+}
+
+
+// Add this function to your API
+function deleteBooking(bookingId) {
+  const bookings = JSON.parse(localStorage.getItem("bookings")) || []
+  const updatedBookings = bookings.filter((booking) => booking.id !== bookingId)
+  localStorage.setItem("bookings", JSON.stringify(updatedBookings))
+}
