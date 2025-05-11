@@ -187,7 +187,7 @@ let maxSeats = Infinity
 
   // Update ticket count   =  Dropdown se agar user ne ticket count change kiya, toh uske hisaab se extra selected seats hata dete hain.
   function updateTicketCount() {
-    maxSeats = Number.parseInt(ticketCountSelect.value)
+     maxSeats = ticketCountSelect ? Number.parseInt(ticketCountSelect.value) : 2
 
     // If we have more selected seats than the new max, deselect the excess
     if (selectedSeats.length > maxSeats) {
@@ -314,6 +314,40 @@ let maxSeats = Infinity
   document.head.appendChild(style)
 })
 
+
+//  Store Multiple Bookings in localStorageconst bookBtn = document.getElementById("book-btn")
+ const bookBtn = document.getElementById("book-btn")
+
+  if (bookBtn) {
+    bookBtn.addEventListener("click", () => {
+      if (selectedSeats.length === 0) {
+        alert("Please select at least one seat.")
+        return
+      }
+
+      setTimeout(() => {
+        const currentUser = localStorage.getItem("currentUser") || "guest"
+        const movieTitle = document.querySelector(".movie-title")?.textContent || "Untitled"
+        const selectedSeatIds = selectedSeats.map(seat => seat.id)
+        const total = totalAmount.textContent.replace("₹", "")
+        const bookingDate = new Date().toISOString()
+
+        const newBooking = {
+          user: currentUser,
+          movieTitle,
+          seats: selectedSeatIds,
+          totalAmount: total,
+          date: bookingDate,
+        }
+
+        const existingBookings = JSON.parse(localStorage.getItem("userBookings")) || []
+        existingBookings.push(newBooking)
+        localStorage.setItem("userBookings", JSON.stringify(existingBookings))
+
+        window.location.href = "confirm.html"
+      }, 2000)
+    })
+  }
 
 
 /* NOTES --->>
