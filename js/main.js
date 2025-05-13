@@ -149,3 +149,19 @@ document.addEventListener("DOMContentLoaded", () => {
   // Check login status on page load
   checkLoginStatus()          
 })
+
+
+
+//for current date 
+document.addEventListener("DOMContentLoaded", () => {
+    const datePicker = document.getElementById("date-picker");
+
+    // Get today's date in YYYY-MM-DD format
+    const today = new Date().toISOString().split('T')[0];
+
+    // Set the date input value to today's date
+    datePicker.value = today;
+
+    // Set the minimum selectable date to today's date
+    datePicker.setAttribute("min", today);
+});

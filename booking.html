@@ -10,6 +10,14 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
+    <script>
+  const user = JSON.parse(localStorage.getItem("currentUser"));
+  if (!user) {
+    alert("Please login first.");
+    window.location.href = "login.html";
+  }
+</script>
+
     <header class="header">
         <div class="container">
             <div class="header-content">
