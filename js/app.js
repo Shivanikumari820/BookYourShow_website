@@ -345,6 +345,45 @@ function setupAuthListeners() {
   }
 }
 
+// Add booking details link
+function setupBookingDetailsLink(user) {
+  const signupButtons = document.querySelectorAll('a[href="signup.html"]')
+
+  signupButtons.forEach((button) => {
+    if (user) {
+      // User is logged in
+      button.innerHTML = "Logout"
+      button.href = "#"
+      button.addEventListener("click", (e) => {
+        e.preventDefault()
+        API.logoutUser().then(() => {
+          window.location.href = "index.html"
+        })
+      })
+    } else {
+      // User is not logged in
+      button.innerHTML = "Sign Up"
+      button.href = "signup.html"
+      // Remove any existing event listeners by cloning and replacing
+      const newButton = button.cloneNode(true)
+      button.parentNode.replaceChild(newButton, button)
+    }
+  })
+
+  const bookingDetailsLink = document.querySelector(".nav-menu .nav-list")
+  const bookingDetailsMobileLink = document.querySelector(".mobile-nav-list")
+
+  if (user) {
+    const bookingLink = document.createElement("li")
+    bookingLink.innerHTML = `<a href="Bookingdetails.html">My Bookings</a>`
+    bookingDetailsLink.appendChild(bookingLink)
+
+    const bookingMobileLink = document.createElement("li")
+    bookingMobileLink.innerHTML = `<a href="Bookingdetails.html">My Bookings</a>`
+    bookingDetailsMobileLink.appendChild(bookingMobileLink)
+  }
+}
+
 // Mock API object for demonstration.  In a real application, this would be imported.
 const API = {
   getCurrentUser: () => {

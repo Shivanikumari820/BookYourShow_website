@@ -27,7 +27,7 @@
                         <li><a href="movies.html">Movies</a></li>
                         <li><a href="cinemas.html">Cinemas</a></li>
                         <li><a href="offers.html">Offers</a></li>
-                        <li><a href="Bookingdetails.html">Details</a></li>
+                        <li><a href="experiences.html">Experiences</a></li>
                     </ul>
                 </nav>
                 
@@ -39,15 +39,16 @@
                         <i class="fas fa-bell"></i>
                         <span class="notification-badge"></span>
                     </button>
-                     <div class="user-profile">
                     <a href="login.html" class="btn-login">
                         <i class="fas fa-user"></i>
-                         
-                        <span id="user-name-display">Sign In</span>
+                        <span>Sign In</span>
                     </a>
-                    </div>
                     <a href="signup.html" class="btn btn-primary">Sign Up</a>
                 </div>
+                
+                <button class="mobile-menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
             </div>
         </div>
     </header>
@@ -60,7 +61,7 @@
                 <li><a href="movies.html">Movies</a></li>
                 <li><a href="cinemas.html">Cinemas</a></li>
                 <li><a href="offers.html">Offers</a></li>
-                <li><a href="Bookingdetails.html">Details</a></li>
+                <li><a href="experiences.html">Experiences</a></li>
             </ul>
             <div class="mobile-actions">
                 <a href="login.html" class="btn-login-mobile">Sign In</a>
@@ -69,19 +70,13 @@
         </div>
     </div>
     
-    <div class="mobile-actions" id="auth-buttons-mobile">
-         <button onclick="logout()" style="display: none;">Logout</button>
-    </div>
-</body>
-</html>
-
     <!-- Hero Section -->
     <section class="hero-section">
         <div class="hero-content">
-
+            <img src="images/hero-bg.jpg" alt="Hero Background" class="hero-image">
             <div class="hero-overlay"></div>
             <div class="hero-text-container container">
-                <div class="hero-text" data-aos="fade-up" data-aos-delay="200">   <!-- AOS lagya h fade up or upr aane me 200 millisecond ka delay hoga-->
+                <div class="hero-text" data-aos="fade-up" data-aos-delay="200">
                     <div class="movie-tags">
                         <span class="tag tag-new">NEW RELEASE</span>
                         <span class="tag tag-format">IMAX</span>
@@ -148,15 +143,13 @@
                             </select>
                         </div>
                     </div>
-                   <div class="form-group">
-    <label>Select Date</label>
-    <div class="date-picker">
-        <span>
-           <input type="date" id="date-picker" style= "color : rgb(242, 238, 238)  ; background: transparent" >
-        </span>
-    </div>
-</div>
-
+                    <div class="form-group">
+                        <label>Select Date</label>
+                        <div class="date-picker">
+                            <i class="fas fa-calendar"></i>
+                            <span>Today, May 10</span>
+                        </div>
+                    </div>
                     <button class="btn btn-primary find-shows">Find Shows</button>
                 </div>
             </div>
@@ -190,7 +183,7 @@
             </div>
             
             <div class="movie-grid">
-                <!-- Coming Soon Movies will be dynamically added here  form js-->
+                <!-- Coming Soon Movies will be dynamically added here -->
             </div>
         </div>
     </section>
@@ -201,7 +194,7 @@
             <h2 class="section-title">Recommended For You</h2>
             
             <div class="recommendation-grid">
-              
+                <!-- Recommendations will be dynamically added here -->
             </div>
         </div>
     </section>
