@@ -9,7 +9,7 @@
       "releaseYear": "2024",
       "description": "Wade Wilson teams up with Wolverine in this action-packed adventure that brings together two of Marvel's most iconic characters.",
       "image": "images/deadpool.webp",
-      "trailer": "https://www.youtube.com/watch?v=U8FM3yaY1nE",
+      "trailer": "https://www.youtube.com/embed/U8FM3yaY1nE?si=NlEYNozUkM2s6QSw",
       "showTimes": ["10:00 AM", "1:30 PM", "4:45 PM", "8:00 PM", "10:30 PM"]
     },
     {
@@ -21,7 +21,7 @@
       "releaseYear": "2024",
       "description": "Po returns for another epic adventure as he faces a new villain threatening the peace of the valley while also training a new Dragon Warrior.",
       "image": "images/kung_fu.jpg",
-      "trailer": "https://www.youtube.com/watch?v=NRc-ze7Wrxw",
+      "trailer": "https://youtu.be/NRc-ze7Wrxw",
       "showTimes": ["9:30 AM", "12:00 PM", "2:30 PM", "5:00 PM", "7:30 PM"]
     },
     {
@@ -33,7 +33,7 @@
       "releaseYear": "2024",
       "description": "The epic clash between Godzilla and Kong continues as they face a colossal threat that could destroy the world.",
       "image": "images/godzilla.jpg",
-      "trailer": "https://www.youtube.com/watch?v=pa3nW0EYYcQ",
+      "trailer": "https://www.youtube.com/embed/odM92ap8_c0",
       "showTimes": ["11:15 AM", "2:00 PM", "4:30 PM", "7:15 PM", "9:45 PM"]
     },
     {
@@ -45,7 +45,7 @@
       "releaseYear": "2024",
       "description": "Paul Atreides unites with Chani and the Fremen while seeking revenge against the conspirators who destroyed his family. Facing a choice between the love of his life and the fate of the universe, he must prevent a terrible future only he can foresee.",
       "image": "images/dune_part two.jpg",
-      "trailer": "https://www.youtube.com/watch?v=Way9Dexny3w&t=4s",
+      "trailer": "https://www.youtube.com/embed/aSiDu3Ywi8E",
       "showTimes": ["10:30 AM", "2:15 PM", "6:00 PM", "9:30 PM"]
     },
     {

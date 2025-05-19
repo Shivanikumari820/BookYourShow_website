@@ -316,21 +316,21 @@ let maxSeats = Infinity
 
 
 //  Store Multiple Bookings in localStorageconst bookBtn = document.getElementById("book-btn")
- const bookBtn = document.getElementById("book-btn")
+const bookBtn = document.getElementById("book-btn");
 
   if (bookBtn) {
     bookBtn.addEventListener("click", () => {
       if (selectedSeats.length === 0) {
-        alert("Please select at least one seat.")
-        return
+        alert("Please select at least one seat.");
+        return;
       }
 
       setTimeout(() => {
-        const currentUser = localStorage.getItem("currentUser") || "guest"
-        const movieTitle = document.querySelector(".movie-title")?.textContent || "Untitled"
-        const selectedSeatIds = selectedSeats.map(seat => seat.id)
-        const total = totalAmount.textContent.replace("₹", "")
-        const bookingDate = new Date().toISOString()
+        const currentUser = localStorage.getItem("currentUser") || "guest";
+        const movieTitle = document.querySelector(".movie-title")?.textContent || "Untitled";
+        const selectedSeatIds = selectedSeats.map(seat => seat.id);
+        const total = totalAmount.textContent.replace("₹", "");
+        const bookingDate = new Date().toISOString();
 
         const newBooking = {
           user: currentUser,
@@ -338,16 +338,17 @@ let maxSeats = Infinity
           seats: selectedSeatIds,
           totalAmount: total,
           date: bookingDate,
-        }
+        };
 
-        const existingBookings = JSON.parse(localStorage.getItem("userBookings")) || []
-        existingBookings.push(newBooking)
-        localStorage.setItem("userBookings", JSON.stringify(existingBookings))
+        const existingBookings = JSON.parse(localStorage.getItem("userBookings")) || [];
+        existingBookings.push(newBooking);
+        localStorage.setItem("userBookings", JSON.stringify(existingBookings));
 
-        window.location.href = "confirm.html"
-      }, 2000)
-    })
+        window.location.href = "confirm.html";
+      }, 2000);
+    });
   }
+
 
 
 /* NOTES --->>
