@@ -1,11 +1,16 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // Check if user is logged in from local storage
-  const isLoggedIn = localStorage.getItem("isLoggedIn") === "true"   
-  if (!isLoggedIn) {
-    // Redirect to login page if not logged in or  redirect ke baad wapas yahi page pe lane ke liye URL save kar lo.
-    localStorage.setItem("redirectAfterLogin", window.location.href)
-    window.location.href = "login.html"
-    return
+  function isUserLoggedIn() {
+    const isLoggedIn = localStorage.getItem("isLoggedIn");
+    const userEmail = localStorage.getItem("userEmail");
+    const currentUser = localStorage.getItem("currentUser");
+    console.log("Login Check:", { isLoggedIn, userEmail, currentUser });
+    return isLoggedIn === "true";
+  }
+
+  if (!isUserLoggedIn()) {
+    // Redirect to login if not logged in
+    window.location.href = "login.html";
+    return;
   }
 
   // Get movie ID from URL

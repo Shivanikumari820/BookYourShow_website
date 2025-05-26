@@ -1,329 +1,370 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MyCinema - Premium Movie Experience</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-</head>
-<body>
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  </head>
+  <body>
     <!-- Header Section -->
     <header class="header">
-        <div class="container">
-            <div class="header-content">
-                <div class="logo">
-                    <a href="index.html">
-                        <span class="logo-text">My</span>
-                        <span class="logo-text-accent">Cinema</span>
-                    </a>
-                </div>
-                
-                <nav class="nav-menu">
-                    <ul class="nav-list">
-                        <li><a href="index.html" class="active">Home</a></li>
-                        <li><a href="movies.html">Movies</a></li>
-                        <li><a href="cinemas.html">Cinemas</a></li>
-                        <li><a href="offers.html">Offers</a></li>
-                        <li><a href="experiences.html">Experiences</a></li>
-                    </ul>
-                </nav>
-                
-                <div class="header-actions">
-                    <button class="btn-icon search-btn">
-                        <i class="fas fa-search"></i>
-                    </button>
-                    <button class="btn-icon notification-btn">
-                        <i class="fas fa-bell"></i>
-                        <span class="notification-badge"></span>
-                    </button>
-                    <a href="login.html" class="btn-login">
-                        <i class="fas fa-user"></i>
-                        <span>Sign In</span>
-                    </a>
-                    <a href="signup.html" class="btn btn-primary">Sign Up</a>
-                </div>
-                
-                <button class="mobile-menu-toggle">
-                    <i class="fas fa-bars"></i>
-                </button>
-            </div>
+      <div class="container">
+        <div class="header-content">
+          <div class="logo">
+            <a href="index.html">
+              <span class="logo-text">My</span>
+              <span class="logo-text-accent">Cinema</span>
+            </a>
+          </div>
+
+          <nav class="nav-menu">
+            <ul class="nav-list">
+              <li><a href="index.html" class="active">Home</a></li>
+              <li><a href="movies.html">Movies</a></li>
+              <li><a href="cinemas.html">Cinemas</a></li>
+              <li><a href="offers.html">Offers</a></li>
+              <li><a href="experiences.html">Experiences</a></li>
+            </ul>
+          </nav>
+
+          <div class="header-actions">
+            <button class="btn-icon search-btn">
+              <i class="fas fa-search"></i>
+            </button>
+            <button class="btn-icon notification-btn">
+              <i class="fas fa-bell"></i>
+              <span class="notification-badge"></span>
+            </button>
+            <a href="login.html" class="btn-login">
+              <i class="fas fa-user"></i>
+              <span>Sign In</span>
+            </a>
+            <a href="signup.html" class="btn btn-primary">Sign Up</a>
+          </div>
+
+          <button class="mobile-menu-toggle">
+            <i class="fas fa-bars"></i>
+          </button>
         </div>
+      </div>
     </header>
-    
+
     <!-- Mobile Menu -->
     <div class="mobile-menu">
-        <div class="container">
-            <ul class="mobile-nav-list">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="movies.html">Movies</a></li>
-                <li><a href="cinemas.html">Cinemas</a></li>
-                <li><a href="offers.html">Offers</a></li>
-                <li><a href="experiences.html">Experiences</a></li>
-            </ul>
-            <div class="mobile-actions">
-                <a href="login.html" class="btn-login-mobile">Sign In</a>
-                <a href="signup.html" class="btn btn-primary">Sign Up</a>
-            </div>
+      <div class="container">
+        <ul class="mobile-nav-list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="movies.html">Movies</a></li>
+          <li><a href="cinemas.html">Cinemas</a></li>
+          <li><a href="offers.html">Offers</a></li>
+          <li><a href="experiences.html">Experiences</a></li>
+        </ul>
+        <div class="mobile-actions">
+          <a href="login.html" class="btn-login-mobile">Sign In</a>
+          <a href="signup.html" class="btn btn-primary">Sign Up</a>
         </div>
+      </div>
     </div>
-    
+
     <!-- Hero Section -->
     <section class="hero-section">
-        <div class="hero-content">
-            <img src="images/hero-bg.jpg" alt="Hero Background" class="hero-image">
-            <div class="hero-overlay"></div>
-            <div class="hero-text-container container">
-                <div class="hero-text" data-aos="fade-up" data-aos-delay="200">
-                    <div class="movie-tags">
-                        <span class="tag tag-new">NEW RELEASE</span>
-                        <span class="tag tag-format">IMAX</span>
-                        <span class="tag tag-format">4DX</span>
-                    </div>
-                    <h1 class="movie-title">Dune: Part Two</h1>
-                    <div class="movie-meta">
-                        <div class="meta-item">
-                            <i class="fas fa-star"></i>
-                            <span>8.9/10</span>
-                        </div>
-                        <div class="meta-item">
-                            <i class="fas fa-clock"></i>
-                            <span>166 min</span>
-                        </div>
-                        <div class="meta-item">
-                            <i class="fas fa-calendar"></i>
-                            <span>2024</span>
-                        </div>
-                        <span class="genre">Sci-Fi</span>
-                        <span class="genre">Adventure</span>
-                    </div>
-                    <p class="movie-description">
-                        Paul Atreides unites with Chani and the Fremen while seeking revenge against the conspirators who destroyed his family. Facing a choice between the love of his life and the fate of the universe, he must prevent a terrible future only he can foresee.
-                    </p>
-                    <div class="hero-buttons">
-                        <button class="btn btn-primary btn-with-icon watch-trailer" data-trailer="https://www.youtube.com/embed/aSiDu3Ywi8E?autoplay=1">
-                            <i class="fas fa-play"></i>
-                            Watch Trailer
-                        </button>
-                        <a href="booking.html?id=4" class="btn btn-secondary">Book Tickets</a>
-                    </div>
-                </div>
+      <div class="hero-content">
+        <img
+          src="images/kung_fu.jpg"
+          alt="Hero Background"
+          class="hero-image"
+        />
+        <div class="hero-overlay"></div>
+        <div class="hero-text-container container">
+          <div class="hero-text" data-aos="fade-up" data-aos-delay="200">
+            <div class="movie-tags">
+              <span class="tag tag-new">NEW RELEASE</span>
+              <span class="tag tag-format">IMAX</span>
+              <span class="tag tag-format">4DX</span>
             </div>
-        </div>
-        
-        <!-- Quick Booking Panel -->
-        <div class="quick-booking-panel container" data-aos="fade-up" data-aos-delay="400">
-            <div class="panel-content">
-                <h2 class="panel-title">Quick Booking</h2>
-                <div class="booking-form">
-                    <div class="form-group">
-                        <label>Select Location</label>
-                        <div class="select-wrapper">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <select id="location-select">
-                                <option>Mumbai</option>
-                                <option>Delhi</option>
-                                <option>Bangalore</option>
-                                <option>Chennai</option>
-                                <option>Hyderabad</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label>Select Movie</label>
-                        <div class="select-wrapper">
-                            <i class="fas fa-film"></i>
-                            <select id="movie-select">
-                                <option>Dune: Part Two</option>
-                                <option>Deadpool & Wolverine</option>
-                                <option>Kung Fu Panda 4</option>
-                                <option>Godzilla x Kong</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label>Select Date</label>
-                        <div class="date-picker">
-                            <i class="fas fa-calendar"></i>
-                            <span>Today, May 10</span>
-                        </div>
-                    </div>
-                    <button class="btn btn-primary find-shows">Find Shows</button>
-                </div>
+            <h1 class="movie-title">Dune: Part Two</h1>
+            <div class="movie-meta">
+              <div class="meta-item">
+                <i class="fas fa-star"></i>
+                <span>8.9/10</span>
+              </div>
+              <div class="meta-item">
+                <i class="fas fa-clock"></i>
+                <span>166 min</span>
+              </div>
+              <div class="meta-item">
+                <i class="fas fa-calendar"></i>
+                <span>2024</span>
+              </div>
+              <span class="genre">Sci-Fi</span>
+              <span class="genre">Adventure</span>
             </div>
+            <p class="movie-description">
+              Paul Atreides unites with Chani and the Fremen while seeking
+              revenge against the conspirators who destroyed his family. Facing
+              a choice between the love of his life and the fate of the
+              universe, he must prevent a terrible future only he can foresee.
+            </p>
+            <div class="hero-buttons">
+              <button
+                class="btn btn-primary btn-with-icon watch-trailer"
+                data-trailer="https://www.youtube.com/embed/aSiDu3Ywi8E?autoplay=1"
+              >
+                <i class="fas fa-play"></i>
+                Watch Trailer
+              </button>
+              <a href="booking.html" class="btn btn-secondary">Book Tickets</a>
+            </div>
+          </div>
         </div>
+      </div>
+
+      <!-- Quick Booking Panel -->
+      <div
+        class="quick-booking-panel container"
+        data-aos="fade-up"
+        data-aos-delay="400"
+      >
+        <div class="panel-content">
+          <h2 class="panel-title">Quick Booking</h2>
+          <div class="booking-form">
+            <div class="form-group">
+              <label>Select Location</label>
+              <div class="select-wrapper">
+                <i class="fas fa-map-marker-alt"></i>
+                <select id="location-select">
+                  <option>Mumbai</option>
+                  <option>Delhi</option>
+                  <option>Bangalore</option>
+                  <option>Chennai</option>
+                  <option>Hyderabad</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Select Movie</label>
+              <div class="select-wrapper">
+                <i class="fas fa-film"></i>
+                <select id="movie-select">
+                  <option>Dune: Part Two</option>
+                  <option>Deadpool & Wolverine</option>
+                  <option>Kung Fu Panda 4</option>
+                  <option>Godzilla x Kong</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Select Date</label>
+              <div class="date-picker">
+                <i class="fas fa-calendar"></i>
+                <input type="date" id="booking-date" min="" style="color: var(--white);; background-color: var(--dark-3) ; border: 1px solid var(--gray-dark);;" required />
+              </div>
+            </div>
+
+            <button class="btn btn-primary find-shows">Find Shows</button>
+          </div>
+        </div>
+      </div>
     </section>
-    
+
     <!-- Now Showing Section -->
     <section class="now-showing section-padding">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Now Showing</h2>
-                <a href="movies.html" class="view-all">View All</a>
-            </div>
-            
-            <div class="swiper movie-carousel">
-                <div class="swiper-wrapper">
-                    <!-- Movie Cards will be dynamically added here -->
-                </div>
-                <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div>
-            </div>
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Now Showing</h2>
+          <a href="movies.html" class="view-all">View All</a>
         </div>
+
+        <div class="swiper movie-carousel">
+          <div class="swiper-wrapper">
+            <!-- Movie Cards will be dynamically added here -->
+          </div>
+          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div>
+        </div>
+      </div>
     </section>
-    
+
     <!-- Coming Soon Section -->
     <section class="coming-soon section-padding">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Coming Soon</h2>
-                <a href="coming-soon.html" class="view-all">View All</a>
-            </div>
-            
-            <div class="movie-grid">
-                <!-- Coming Soon Movies will be dynamically added here -->
-            </div>
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Coming Soon</h2>
+          <a href="coming-soon.html" class="view-all">View All</a>
         </div>
+
+        <div class="movie-grid">
+          <!-- Coming Soon Movies will be dynamically added here -->
+        </div>
+      </div>
     </section>
-    
+
     <!-- Personalized Recommendations -->
     <section class="recommendations section-padding">
-        <div class="container">
-            <h2 class="section-title">Recommended For You</h2>
-            
-            <div class="recommendation-grid">
-                <!-- Recommendations will be dynamically added here -->
-            </div>
+      <div class="container">
+        <h2 class="section-title">Recommended For You</h2>
+
+        <div class="recommendation-grid">
+          <!-- Recommendations will be dynamically added here -->
         </div>
+      </div>
     </section>
-    
+
     <!-- Cinema Experience -->
     <section class="cinema-experience section-padding">
-        <div class="container">
-            <h2 class="section-title text-center">Premium Cinema Experience</h2>
-            
-            <div class="experience-grid">
-                <div class="experience-card" data-aos="fade-up">
-                    <div class="experience-icon">
-                        <i class="fas fa-couch"></i>
-                    </div>
-                    <h3>Luxury Seating</h3>
-                    <p>Experience movies in ultimate comfort with our premium recliner seats and extra legroom.</p>
-                </div>
-                
-                <div class="experience-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="experience-icon">
-                        <i class="fas fa-volume-up"></i>
-                    </div>
-                    <h3>Dolby Atmos</h3>
-                    <p>Immerse yourself in 360° sound with our state-of-the-art Dolby Atmos audio system.</p>
-                </div>
-                
-                <div class="experience-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="experience-icon">
-                        <i class="fas fa-utensils"></i>
-                    </div>
-                    <h3>Gourmet Food</h3>
-                    <p>Enjoy premium snacks and beverages delivered right to your seat during the show.</p>
-                </div>
+      <div class="container">
+        <h2 class="section-title text-center">Premium Cinema Experience</h2>
+
+        <div class="experience-grid">
+          <div class="experience-card" data-aos="fade-up">
+            <div class="experience-icon">
+              <i class="fas fa-couch"></i>
             </div>
+            <h3>Luxury Seating</h3>
+            <p>
+              Experience movies in ultimate comfort with our premium recliner
+              seats and extra legroom.
+            </p>
+          </div>
+
+          <div class="experience-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="experience-icon">
+              <i class="fas fa-volume-up"></i>
+            </div>
+            <h3>Dolby Atmos</h3>
+            <p>
+              Immerse yourself in 360° sound with our state-of-the-art Dolby
+              Atmos audio system.
+            </p>
+          </div>
+
+          <div class="experience-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="experience-icon">
+              <i class="fas fa-utensils"></i>
+            </div>
+            <h3>Gourmet Food</h3>
+            <p>
+              Enjoy premium snacks and beverages delivered right to your seat
+              during the show.
+            </p>
+          </div>
         </div>
+      </div>
     </section>
-    
+
     <!-- Footer -->
     <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-column">
-                    <h3 class="footer-title">MyCinema</h3>
-                    <p class="footer-description">
-                        Experience movies like never before with premium comfort and cutting-edge technology.
-                    </p>
-                    <div class="social-links">
-                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
-                    </div>
-                </div>
-                
-                <div class="footer-column">
-                    <h3 class="footer-title">Quick Links</h3>
-                    <ul class="footer-links">
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="cinemas.html">Our Cinemas</a></li>
-                        <li><a href="food.html">Food & Beverages</a></li>
-                        <li><a href="offers.html">Offers & Promotions</a></li>
-                        <li><a href="gift-cards.html">Gift Cards</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-column">
-                    <h3 class="footer-title">Experiences</h3>
-                    <ul class="footer-links">
-                        <li><a href="imax.html">IMAX</a></li>
-                        <li><a href="4dx.html">4DX</a></li>
-                        <li><a href="dolby.html">Dolby Atmos</a></li>
-                        <li><a href="luxe.html">LUXE</a></li>
-                        <li><a href="playhouse.html">Playhouse</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-column">
-                    <h3 class="footer-title">Contact Us</h3>
-                    <ul class="contact-info">
-                        <li>
-                            <i class="fas fa-envelope"></i>
-                            <span>support@mycinema.com</span>
-                        </li>
-                        <li>
-                            <i class="fas fa-phone"></i>
-                            <span>+91 1800 1234 5678</span>
-                        </li>
-                    </ul>
-                    <div class="newsletter">
-                        <h4>Subscribe to Newsletter</h4>
-                        <div class="newsletter-form">
-                            <input type="email" placeholder="Your email">
-                            <button class="btn btn-primary">Join</button>
-                        </div>
-                    </div>
-                </div>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-column">
+            <h3 class="footer-title">MyCinema</h3>
+            <p class="footer-description">
+              Experience movies like never before with premium comfort and
+              cutting-edge technology.
+            </p>
+            <div class="social-links">
+              <a href="#" class="social-link"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+              <a href="#" class="social-link"
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
             </div>
-            
-            <div class="footer-bottom">
-                <p class="copyright">
-                    &copy; <span id="current-year"></span> MyCinema. All rights reserved.
-                </p>
-                <div class="footer-bottom-links">
-                    <a href="terms.html">Terms of Service</a>
-                    <a href="privacy.html">Privacy Policy</a>
-                    <a href="faq.html">FAQ</a>
-                </div>
+          </div>
+
+          <div class="footer-column">
+            <h3 class="footer-title">Quick Links</h3>
+            <ul class="footer-links">
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="cinemas.html">Our Cinemas</a></li>
+              <li><a href="food.html">Food & Beverages</a></li>
+              <li><a href="offers.html">Offers & Promotions</a></li>
+              <li><a href="gift-cards.html">Gift Cards</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-column">
+            <h3 class="footer-title">Experiences</h3>
+            <ul class="footer-links">
+              <li><a href="imax.html">IMAX</a></li>
+              <li><a href="4dx.html">4DX</a></li>
+              <li><a href="dolby.html">Dolby Atmos</a></li>
+              <li><a href="luxe.html">LUXE</a></li>
+              <li><a href="playhouse.html">Playhouse</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-column">
+            <h3 class="footer-title">Contact Us</h3>
+            <ul class="contact-info">
+              <li>
+                <i class="fas fa-envelope"></i>
+                <span>support@mycinema.com</span>
+              </li>
+              <li>
+                <i class="fas fa-phone"></i>
+                <span>+91 1800 1234 5678</span>
+              </li>
+            </ul>
+            <div class="newsletter">
+              <h4>Subscribe to Newsletter</h4>
+              <div class="newsletter-form">
+                <input type="email" placeholder="Your email" />
+                <button class="btn btn-primary">Join</button>
+              </div>
             </div>
+          </div>
         </div>
+
+        <div class="footer-bottom">
+          <p class="copyright">
+            &copy; <span id="current-year"></span> MyCinema. All rights
+            reserved.
+          </p>
+          <div class="footer-bottom-links">
+            <a href="terms.html">Terms of Service</a>
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="faq.html">FAQ</a>
+          </div>
+        </div>
+      </div>
     </footer>
-    
+
     <!-- Trailer Modal -->
     <div class="trailer-modal">
-        <div class="modal-content">
-            <button class="close-modal">
-                <i class="fas fa-times"></i>
-            </button>
-            <div class="video-container">
-                <iframe id="trailer-iframe" width="100%" height="100%" frameborder="0" 
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                  allowfullscreen></iframe>
-            </div>
+      <div class="modal-content">
+        <button class="close-modal">
+          <i class="fas fa-times"></i>
+        </button>
+        <div class="video-container">
+          <iframe
+            id="trailer-iframe"
+            width="100%"
+            height="100%"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
         </div>
+      </div>
     </div>
-    
+
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="js/main.js"></script>
     <script src="js/movies.js"></script>
-</body>
+  </body>
 </html>

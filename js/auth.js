@@ -204,89 +204,50 @@
 
 
 
-
-
 document.addEventListener("DOMContentLoaded", () => {
-    // Toggle password visibility
-  const togglePasswordButtons = document.querySelectorAll(".toggle-password")
-
-
-//Har button ke liye loop chala rahe hain. ,Jab button pe click ho, tab yeh code chalega.
-  togglePasswordButtons.forEach((button) => {
+  // Toggle password visibility
+  document.querySelectorAll(".toggle-password").forEach((button) => {
     button.addEventListener("click", function () {
-      const input = this.previousElementSibling
-      const icon = this.querySelector("i")
+      const input = this.previousElementSibling;
+      const icon = this.querySelector("i");
 
-
-//Agar password chhupa hua hai to usse dikha do aur icon badal do
-      if (input.type === "password") {
-        input.type = "text"
-        icon.classList.remove("fa-eye")
-        icon.classList.add("fa-eye-slash")
-      } else {                                               //Aur agar password visible hai to wapas chhupa do aur icon badal do.
-        input.type = "password"
-        icon.classList.remove("fa-eye-slash")
-        icon.classList.add("fa-eye")
-      }
-    })
-  })
+      const isPassword = input.type === "password";
+      input.type = isPassword ? "text" : "password";
+      icon.classList.toggle("fa-eye", !isPassword);
+      icon.classList.toggle("fa-eye-slash", isPassword);
+    });
+  });
 
   // Password strength meter
-  const passwordInput = document.getElementById("password")
-  const strengthMeter = document.querySelector(".strength-meter-fill")
-  const strengthText = document.querySelector(".strength-text span")
+  const passwordInput = document.getElementById("password");
+  const strengthMeter = document.querySelector(".strength-meter-fill");
+  const strengthText = document.querySelector(".strength-text span");
 
   if (passwordInput && strengthMeter && strengthText) {
     passwordInput.addEventListener("input", function () {
-      const password = this.value
-      let strength = 0
+      const password = this.value;
+      let strength = 0;
 
-//Password ki length, capital/lower case, numbers, special characters check kar ke strength badhate hain.----->>>>>>>.      
-      // Check password length
-      if (password.length >= 8) {
-        strength += 1
-      }
+      if (password.length >= 8) strength++;
+      if (/[a-z]/.test(password) && /[A-Z]/.test(password)) strength++;
+      if (/\d/.test(password)) strength++;
+      if (/[^a-zA-Z\d]/.test(password)) strength++;
 
-      // Check for mixed case
-      if (password.match(/[a-z]/) && password.match(/[A-Z]/)) {
-        strength += 1
-      }
+      const strengthLabels = ["Weak", "Fair", "Good", "Strong"];
+      const index = Math.min(3, strength);
 
-      // Check for numbers
-      if (password.match(/\d/)) {
-        strength += 1
-      }
-
-      // Check for special characters
-      if (password.match(/[^a-zA-Z\d]/)) {
-        strength += 1
-      }
-
-      // Update strength meter
-      strengthMeter.setAttribute("data-strength", Math.min(3, strength))
-
-      // Update strength text
-      const strengthLabels = ["Weak", "Fair", "Good", "Strong"]
-      strengthText.textContent = strengthLabels[Math.min(3, strength)]
-    })
+      strengthMeter.setAttribute("data-strength", index);
+      strengthText.textContent = strengthLabels[index];
+    });
   }
 
-function getUsers() {
-    return JSON.parse(localStorage.getItem("users")) || [];
-  }
+  // 🧾 Utilities
+  const getUsers = () => JSON.parse(localStorage.getItem("users")) || [];
+  const saveUsers = (users) => localStorage.setItem("users", JSON.stringify(users));
+  const showToast = (msg, type = "info") =>
+    window.showToast ? window.showToast(msg, type) : alert(`${type.toUpperCase()}: ${msg}`);
 
-  // Utility: Save all users
-  function saveUsers(users) {
-    localStorage.setItem("users", JSON.stringify(users));
-  }
-
-  // Utility: Show toast (assume defined elsewhere)
-  function showToast(message, type = "info") {
-    if (window.showToast) window.showToast(message, type);
-    else alert(`${type.toUpperCase()}: ${message}`);
-  }
-
-  // 🧾 Signup Form
+  // 🧾 Signup
   const signupForm = document.getElementById("signup-form");
   if (signupForm) {
     signupForm.addEventListener("submit", (e) => {
@@ -306,42 +267,34 @@ function getUsers() {
 
       if (password !== confirmPassword) {
         showToast("Passwords do not match!", "error");
-        submitBtn.innerHTML = originalText;
-        submitBtn.disabled = false;
-        return;
+        return resetButton();
       }
 
       const users = getUsers();
-      const userExists = users.find((user) => user.email === email);
-
-      if (userExists) {
+      if (users.find((user) => user.email === email)) {
         showToast("Email already registered. Please login instead.", "error");
-        submitBtn.innerHTML = originalText;
-        submitBtn.disabled = false;
-        return;
+        return resetButton();
       }
 
-      const newUser = {
-        name: `${firstName} ${lastName}`,
-        email,
-        phone,
-        password,
-      };
-
+      const newUser = { name: `${firstName} ${lastName}`, email, phone, password };
       users.push(newUser);
       saveUsers(users);
+
       localStorage.setItem("isLoggedIn", "true");
       localStorage.setItem("loggedInUserEmail", email);
       localStorage.setItem("userName", newUser.name);
 
       showToast("Account created successfully! Redirecting...", "success");
-      setTimeout(() => {
-        window.location.href = "index.html";
-      }, 1500);
+      setTimeout(() => (window.location.href = "index.html"), 1500);
+
+      function resetButton() {
+        submitBtn.innerHTML = originalText;
+        submitBtn.disabled = false;
+      }
     });
   }
 
-  // 🔐 Login Form
+  // 🔐 Login
   const loginForm = document.getElementById("login-form");
   if (loginForm) {
     loginForm.addEventListener("submit", (e) => {
@@ -355,21 +308,16 @@ function getUsers() {
       const email = document.getElementById("email").value.trim().toLowerCase();
       const password = document.getElementById("password").value;
 
-      const users = getUsers();
-      const user = users.find((u) => u.email === email);
+      const user = getUsers().find((u) => u.email === email);
 
       if (!user) {
         showToast("User not found. Please sign up.", "error");
-        submitBtn.innerHTML = originalText;
-        submitBtn.disabled = false;
-        return;
+        return resetButton();
       }
 
       if (user.password !== password) {
         showToast("Incorrect password. Please try again.", "error");
-        submitBtn.innerHTML = originalText;
-        submitBtn.disabled = false;
-        return;
+        return resetButton();
       }
 
       localStorage.setItem("isLoggedIn", "true");
@@ -377,80 +325,78 @@ function getUsers() {
       localStorage.setItem("userName", user.name);
 
       showToast("Login successful! Redirecting...", "success");
+      setTimeout(() => (window.location.href = "index.html"), 1500);
+
+      function resetButton() {
+        submitBtn.innerHTML = originalText;
+        submitBtn.disabled = false;
+      }
+    });
+  }
+
+  // 🔁 Forgot Password
+  const forgotForm = document.getElementById("forgot-password-form");
+  if (forgotForm) {
+    forgotForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      const submitBtn = forgotForm.querySelector('button[type="submit"]');
+      const originalText = submitBtn.innerHTML;
+      submitBtn.innerHTML = '<div class="loader"></div>';
+      submitBtn.disabled = true;
+
+      const email = document.getElementById("email").value.trim().toLowerCase();
+      const users = getUsers();
+      const user = users.find((u) => u.email === email);
+
       setTimeout(() => {
-        window.location.href = "index.html";
+        if (!user) {
+          showToast("Email not found. Please sign up.", "error");
+          submitBtn.innerHTML = originalText;
+          submitBtn.disabled = false;
+          return;
+        }
+
+        forgotForm.innerHTML = `
+          <h3>Reset Password</h3>
+          <p>Enter your new password below:</p>
+          <input type="password" id="new-password" placeholder="New Password" required style="color: black;" />
+          <input type="password" id="confirm-new-password" placeholder="Confirm New Password" required style="color: black;" />
+          <button type="submit" class="btn btn-primary">Reset Password</button>
+        `;
+
+        forgotForm.querySelector("button").addEventListener("click", () => {
+          const newPassword = document.getElementById("new-password").value;
+          const confirmNewPassword = document.getElementById("confirm-new-password").value;
+
+          if (newPassword !== confirmNewPassword) {
+            showToast("Passwords do not match. Please try again.", "error");
+          } else {
+            user.password = newPassword;
+            saveUsers(users);
+            showToast("Password reset successfully! You can now log in.", "success");
+
+            setTimeout(() => (window.location.href = "login.html"), 1500);
+          }
+        });
       }, 1500);
     });
   }
 
-const forgotForm = document.getElementById("forgot-password-form");
-if (forgotForm) {
-  forgotForm.addEventListener("submit", (e) => {
-    e.preventDefault();
-
-    const submitBtn = forgotForm.querySelector('button[type="submit"]');
-    const originalText = submitBtn.innerHTML;
-    submitBtn.innerHTML = '<div class="loader"></div>';
-    submitBtn.disabled = true;
-
-    const email = document.getElementById("email").value.trim().toLowerCase();
-    const users = getUsers();
-    const user = users.find((u) => u.email === email);
-
-    setTimeout(() => {
-      if (!user) {
-        showToast("Email not found. Please sign up.", "error");
-        submitBtn.innerHTML = originalText;
-        submitBtn.disabled = false;
-      } else {
-        // If user exists, show a new form to input new password
-        forgotForm.innerHTML = `
-             <h3>Reset Password</h3>
-             <p>Enter your new password below:</p>
-             <input type="password" id="new-password" placeholder="New Password" required style="color: black;" />
-             <input type="password" id="confirm-new-password" placeholder="Confirm New Password" required style="color: black;" />
-             <button type="submit" class="btn btn-primary">Reset Password</button>
-        `;
-
-        forgotForm.querySelector("button").addEventListener("click", function () {
-          const newPassword = document.getElementById("new-password").value;
-          const confirmNewPassword = document.getElementById("confirm-new-password").value;
-
-          // Check if both passwords match
-          if (newPassword !== confirmNewPassword) {
-            showToast("Passwords do not match. Please try again.", "error");
-          } else {
-            // Update the user's password
-            user.password = newPassword;
-            saveUsers(users);
-            showToast("Password reset successfully! You can now log in with the new password.", "success");
-
-            // Redirect user to login page
-            setTimeout(() => {
-              window.location.href = "login.html";
-            }, 1500);
-          }
-        });
-      }
-    }, 1500);
-  });
-}
-
-
-  // Display user name after page load
+  // 👋 Show user name
   const userNameDisplay = document.getElementById("user-name-display");
   const storedUserName = localStorage.getItem("userName");
   if (storedUserName && userNameDisplay) {
     userNameDisplay.textContent = storedUserName;
   }
 
-  // 🚪 Redirect if already logged in
+  // 🚪 Auto redirect if already logged in
   const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
-  if (
-    isLoggedIn &&
-    (window.location.pathname.includes("login.html") ||
-      window.location.pathname.includes("signup.html"))
-  ) {
+  const isAuthPage =
+    window.location.pathname.includes("login.html") ||
+    window.location.pathname.includes("signup.html");
+
+  if (isLoggedIn && isAuthPage) {
     window.location.href = "index.html";
   }
 });

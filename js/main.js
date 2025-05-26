@@ -84,18 +84,29 @@ document.addEventListener("DOMContentLoaded", () => {
     })
   }
 
+  // Check if user is logged in - SAME AS BOOKING.JS
+function isUserLoggedIn() {
+  const isLoggedIn = localStorage.getItem("isLoggedIn");
+  const userEmail = localStorage.getItem("userEmail");
+  const currentUser = localStorage.getItem("currentUser");
+
+  console.log("Login Check:", { isLoggedIn, userEmail, currentUser });
+
+   return isLoggedIn === "true" ;
+}
+
   // Check if user is logged in
   function checkLoginStatus() {
-    const isLoggedIn = localStorage.getItem("isLoggedIn") === "true"
+    const isLoggedIn = isUserLoggedIn()
     const loginBtn = document.querySelector(".btn-login")
     const signupBtn = document.querySelector(".btn-primary")
 
     if (isLoggedIn && loginBtn && signupBtn) {
       const userName = localStorage.getItem("userName") || "User"
       loginBtn.innerHTML = `<i class="fas fa-user"></i><span>${userName}</span>`
-      loginBtn.href = "#"
+      loginBtn.href = "login.html"
       signupBtn.textContent = "Logout"
-      signupBtn.href = "#"
+      signupBtn.href = "signup.html"
       signupBtn.addEventListener("click", (e) => {
         e.preventDefault()
         logout()
@@ -108,6 +119,8 @@ document.addEventListener("DOMContentLoaded", () => {
     localStorage.removeItem("isLoggedIn")
     localStorage.removeItem("userEmail")
     localStorage.removeItem("userName")
+    localStorage.removeItem("loggedInUserEmail")
+    localStorage.removeItem("currentUser")
 
     // Show toast notification
     showToast("Successfully logged out!", "success")
@@ -148,6 +161,95 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 3000)
   }
 
+  // BOOK NOW BUTTON FUNCTIONALITY - NEW ADDITION
+  function handleBookNowClick(e) {
+    e.preventDefault(); // Prevent default navigation
+    
+    if (isUserLoggedIn()) {
+      // User is logged in, redirect to booking page
+      window.location.href = "booking.html";
+    } else {
+      // User is not logged in, show message and redirect to login
+      showToast("Please login to book tickets", "warning");
+      
+      // Store the redirect URL
+      localStorage.setItem("redirectAfterLogin", "booking.html");
+      
+      setTimeout(() => {
+        window.location.href = "login.html";
+      }, 1500);
+    }
+  }
+
+  // ADD EVENT LISTENERS TO BOOK NOW BUTTONS - NEW ADDITION
+  function attachBookNowListeners() {
+    const bookNowSelectors = [
+      'a[href="booking.html"]',
+      'a[href*="booking.html"]',
+      '.btn[href="booking.html"]',
+      '.btn[href*="booking.html"]',
+      '.book-now-btn',
+      '.btn-book',
+      '.btn-secondary[href="booking.html"]',
+      '.find-shows'
+    ];
+    
+    const bookNowButtons = document.querySelectorAll(bookNowSelectors.join(', '));
+    
+    bookNowButtons.forEach((button) => {
+      button.removeEventListener("click", handleBookNowClick);
+      button.addEventListener("click", handleBookNowClick);
+    });
+  }
+
+  // ATTACH LISTENERS AFTER PAGE LOAD - NEW ADDITION
+  attachBookNowListeners();
+
+  // OBSERVER FOR DYNAMICALLY ADDED BUTTONS - NEW ADDITION
+  const observer = new MutationObserver((mutations) => {
+    mutations.forEach((mutation) => {
+      if (mutation.type === 'childList') {
+        mutation.addedNodes.forEach((node) => {
+          if (node.nodeType === Node.ELEMENT_NODE) {
+            const bookNowSelectors = [
+              'a[href="booking.html"]',
+              'a[href*="booking.html"]',
+              '.btn[href="booking.html"]',
+              '.btn[href*="booking.html"]',
+              '.book-now-btn',
+              '.btn-book',
+              '.btn-secondary[href="booking.html"]'
+            ];
+            
+            const newBookButtons = node.querySelectorAll(bookNowSelectors.join(', '));
+            newBookButtons.forEach((button) => {
+              button.addEventListener("click", handleBookNowClick);
+            });
+          }
+        });
+      }
+    });
+  });
+
+  observer.observe(document.body, {
+    childList: true,
+    subtree: true
+  });
+
   // Check login status on page load
   checkLoginStatus()
 })
+
+document.addEventListener("DOMContentLoaded", () => {
+  const dateInput = document.getElementById("booking-date");
+  if (dateInput) {
+    const today = new Date();
+
+    // Format date to YYYY-MM-DD
+    const formattedToday = today.toISOString().split('T')[0];
+
+    // Set min and default value
+    dateInput.min = formattedToday;
+    dateInput.value = formattedToday;
+  }
+});
