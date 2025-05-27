@@ -323,36 +323,41 @@ let maxSeats = Infinity
 //  Store Multiple Bookings in localStorageconst bookBtn = document.getElementById("book-btn")
 const bookBtn = document.getElementById("book-btn");
 
-  if (bookBtn) {
-    bookBtn.addEventListener("click", () => {
-      if (selectedSeats.length === 0) {
-        alert("Please select at least one seat.");
-        return;
-      }
+if (bookBtn) {
+  bookBtn.addEventListener("click", () => {
+    if (selectedSeats.length === 0) {
+      alert("Please select at least one seat.");
+      return;
+    }
 
-      setTimeout(() => {
-        const currentUser = localStorage.getItem("currentUser") || "guest";
-        const movieTitle = document.querySelector(".movie-title")?.textContent || "Untitled";
-        const selectedSeatIds = selectedSeats.map(seat => seat.id);
-        const total = totalAmount.textContent.replace("₹", "");
-        const bookingDate = new Date().toISOString();
+    setTimeout(() => {
+      const currentUser = localStorage.getItem("currentUser") || "guest";
+      const currentUserEmail = localStorage.getItem("loggedInUserEmail") || localStorage.getItem("userEmail");
 
-        const newBooking = {
-          user: currentUser,
-          movieTitle,
-          seats: selectedSeatIds,
-          totalAmount: total,
-          date: bookingDate,
-        };
+      const movieTitle = document.querySelector(".movie-title")?.textContent || "Untitled";
+      const selectedSeatIds = selectedSeats.map(seat => seat.id);
+      const total = parseInt(totalAmount.textContent.replace("₹", ""));
+      const bookingDate = new Date().toISOString();
 
-        const existingBookings = JSON.parse(localStorage.getItem("userBookings")) || [];
-        existingBookings.push(newBooking);
-        localStorage.setItem("userBookings", JSON.stringify(existingBookings));
+      const newBooking = {
+        user: currentUser,
+        email: currentUserEmail, // ✅ Important for filtering
+        movieTitle,
+        seats: selectedSeatIds,
+        totalAmount: total,
+        date: bookingDate,
+      };
 
-        window.location.href = "confirm.html";
-      }, 2000);
-    });
-  }
+      const existingBookings = JSON.parse(localStorage.getItem("userBookings")) || [];
+      existingBookings.push(newBooking);
+      localStorage.setItem("userBookings", JSON.stringify(existingBookings));
+
+      window.location.href = "confirm.html";
+    }, 2000);
+  });
+}
+
+  
 
 
 
